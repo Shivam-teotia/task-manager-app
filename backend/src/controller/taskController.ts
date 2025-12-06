@@ -1,5 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import * as taskService from "../services/TaskService";
+import { validateInput } from "../validators/validateInput";
+import { createTaskSchema } from "../validators/taskValidation";
 
 export const createTask = async (
     req: Request,
@@ -7,6 +9,13 @@ export const createTask = async (
     next: NextFunction
 ) => {
     try {
+        const { valid, errors } = validateInput(createTaskSchema, req.body);
+        if (!valid) {
+            return res.status(400).json({
+                message: "Invalid input",
+                errors,
+            });
+        }
         const task = await taskService.createTask(req.body);
         res.status(201).json(task);
     } catch (err) {
@@ -54,6 +63,13 @@ export const updateTask = async (
     next: NextFunction
 ) => {
     try {
+        const { valid, errors } = validateInput(createTaskSchema, req.body);
+        if (!valid) {
+            return res.status(400).json({
+                message: "Invalid input",
+                errors,
+            });
+        }
         const task = await taskService.updateTask(req.params.id, req.body);
         if (!task) return res.status(404).json({ message: "Task not found" });
         res.json(task);
