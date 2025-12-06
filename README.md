@@ -1,42 +1,71 @@
-# Archerin Assignment - Local Setup
+# Voice Enabled Task Tracker
 
-## Prerequisites
+## Installation
 
--   Node.js >= 18.x
--   npm >= 9.x
--   Git
+1. Prerequisite
 
----
+    ```bash
+    Node.js >= 18.x
+    npm >= 9.x
+    Git
+    ```
 
-## 1. Clone the repository
+1. Clone the repository:
 
-git clone git@github.com:Shivam-teotia/task-manager-app.git
+    ```bash
+    git clone git@github.com:Shivam-teotia/task-manager-app.git
+    ```
 
-## 2. Install dependencies
+1. Install the dependencies for frontend and run server:
 
-# Backend
+    ```bash
+    cd frontend
+    ```
 
-cd backend
-npm install
+    ```bash
+    npm install
+    ```
 
-# Frontend
+    ```bash
+    npm run dev
+    ```
 
-cd ../frontend
-npm install
+1. Install the dependencies for backend:
 
-## 3. Setup variable in env.example
+    ``bash
+    open new terminal at root level
 
-Create .env file at same place
-add same variable
+    ````
 
-## 4. Run in development mode
+    ```bash
+    cd backend
+    ````
 
-# Backend
+    ```bash
+    npm install
+    ```
 
-cd backend
-npm run dev
+    ```bash
+    npm run dev
+    ```
 
-# Frontend
+1. Set up the environment variables:
 
-cd ../frontend
-npm start
+    Create 1 `.env` file inside frontend and 1 `.env` file inside backend and take reference of .env.example to add variables.
+
+## Tech Stack
+
+### Frontend
+
+-   **NextJS**
+-   **Redux Toolkit** (State management)
+-   **Axios** (API calls)
+-   **TailwindCSS** (UI styling)
+
+### Backend
+
+-   **Node.js**
+-   **Express.js**
+-   **Mongoose**
+-   **Zod** (Request validation)
+-   **Nodemon** (Dev mode)
